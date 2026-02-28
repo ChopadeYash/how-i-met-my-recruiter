@@ -1,65 +1,188 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+const features = [
+  {
+    icon: "💬",
+    title: "AI Job Assistant",
+    description:
+      "Ask anything about a role, company culture, job description, salary ranges, or required skills. Get instant, scoped answers.",
+    href: "/chat",
+    cta: "Start Chatting",
+    color: "#6366f1",
+  },
+  {
+    icon: "📄",
+    title: "ATS Resume Checker",
+    description:
+      "Upload your resume PDF and paste the job description. Get an ATS compatibility score, keyword gaps, and improvement tips.",
+    href: "/ats-checker",
+    cta: "Check My Resume",
+    color: "#10b981",
+  },
+  {
+    icon: "📖",
+    title: "How It Works",
+    description:
+      "Learn how the AI assistant is scoped, what questions work best, and how the ATS scoring engine evaluates your resume.",
+    href: "/about",
+    cta: "Learn More",
+    color: "#f59e0b",
+  },
+];
+
+const sampleQuestions = [
+  "What does a Senior Java Developer role at a fintech company typically involve?",
+  "How is Amazon's work culture for software engineers?",
+  "What's the pay range for a Gen AI Engineer with 3 years of experience?",
+  "What skills are required for a Full Stack role with React and Node.js?",
+  "Is this JD asking for too many things for a junior role?",
+];
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-full">
+      {/* Hero */}
+      <section className="relative overflow-hidden py-20 px-4">
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99,102,241,0.3), transparent)",
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+        <div className="relative max-w-4xl mx-auto text-center">
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 border"
+            style={{
+              background: "var(--accent-glow)",
+              borderColor: "var(--accent)",
+              color: "#a5b4fc",
+            }}
+          >
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            AI-Powered · Free to Explore
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            How I Met My{" "}
+            <span style={{ color: "var(--accent)" }}>Recruiter</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10" style={{ color: "var(--text-secondary)" }}>
+            Your personal AI toolkit for job hunting. Understand any role, decode
+            job descriptions, research companies, check salaries — and make sure
+            your resume actually passes ATS filters.
           </p>
+
+          <p className="text-sm max-w-xl mx-auto mb-8" style={{ color: "var(--text-muted)" }}>
+            New here? <Link href="/about" className="underline hover:no-underline" style={{ color: "var(--accent)" }}>See how to study and use the tools</Link>.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/chat"
+              className="px-6 py-3 rounded-lg font-semibold text-white transition-all duration-150 hover:opacity-90 hover:scale-105"
+              style={{ background: "var(--accent)" }}
+            >
+              Ask the AI Assistant →
+            </Link>
+            <Link
+              href="/ats-checker"
+              className="px-6 py-3 rounded-lg font-semibold transition-all duration-150 hover:scale-105 border"
+              style={{
+                borderColor: "var(--border)",
+                color: "var(--text-primary)",
+                background: "var(--bg-card)",
+              }}
+            >
+              Check My Resume
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Feature Cards */}
+      <section className="py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-3">What can you do here?</h2>
+          <p className="text-center mb-10" style={{ color: "var(--text-secondary)" }}>
+            Three tools. One goal: walk into that interview ready.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {features.map((f) => (
+              <div
+                key={f.title}
+                className="rounded-xl p-6 border flex flex-col gap-4 hover:border-indigo-500 transition-all duration-200 group"
+                style={{ background: "var(--bg-card)", borderColor: "var(--border)" }}
+              >
+                <div className="text-3xl">{f.icon}</div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">{f.title}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                    {f.description}
+                  </p>
+                </div>
+                <Link
+                  href={f.href}
+                  className="mt-auto text-sm font-medium transition-colors"
+                  style={{ color: f.color }}
+                >
+                  {f.cta} →
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* Sample Questions */}
+      <section className="py-16 px-4" style={{ background: "var(--bg-secondary)" }}>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-center mb-3">Things you can ask</h2>
+          <p className="text-center mb-8 text-sm" style={{ color: "var(--text-secondary)" }}>
+            The AI assistant is scoped to job market questions — no fluff, no hallucinations about off-topic things.
+          </p>
+          <div className="flex flex-col gap-3">
+            {sampleQuestions.map((q, i) => (
+              <Link
+                href={`/chat?q=${encodeURIComponent(q)}`}
+                key={i}
+                className="flex items-start gap-3 p-4 rounded-lg border hover:border-indigo-500 transition-all duration-150 group"
+                style={{ background: "var(--bg-card)", borderColor: "var(--border)" }}
+              >
+                <span className="text-indigo-400 mt-0.5 text-sm">→</span>
+                <span className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                  {q}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section className="py-16 px-4">
+        <div
+          className="max-w-3xl mx-auto rounded-2xl p-10 text-center border"
+          style={{
+            background: "linear-gradient(135deg, rgba(99,102,241,0.15), rgba(16,185,129,0.1))",
+            borderColor: "var(--border)",
+          }}
+        >
+          <h2 className="text-2xl font-bold mb-3">Is your resume cooked?</h2>
+          <p className="mb-6 text-sm" style={{ color: "var(--text-secondary)" }}>
+            Most resumes get rejected before a human ever reads them. Our ATS checker
+            tells you exactly why and how to fix it.
+          </p>
+          <Link
+            href="/ats-checker"
+            className="inline-block px-8 py-3 rounded-lg font-semibold text-white transition-all hover:opacity-90"
+            style={{ background: "var(--green)" }}
+          >
+            Check My Resume Now
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
