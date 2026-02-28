@@ -17,8 +17,8 @@ AI-powered job prep toolkit: landing page, chat assistant, and ATS resume checke
 ## Getting started
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/recruiter-app.git
-cd recruiter-app
+git clone https://github.com/YOUR_USERNAME/how-i-met-my-recruiter.git
+cd how-i-met-my-recruiter
 npm install
 ```
 
@@ -56,6 +56,10 @@ Open [http://localhost:3000](http://localhost:3000).
 - **OpenAI** (via Vercel AI SDK) — Chat and ATS analysis  
 - **Tailwind CSS** — Styling  
 - **TypeScript** — Typing  
+
+## Author
+
+**Yash Chopade**
 
 ## License
 
